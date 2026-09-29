@@ -507,5 +507,5 @@ script = ExtResource("1_ivevv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=713762771]
 sprite_frames = SubResource("SpriteFrames_j47wa")
-animation = &"death"
-frame_progress = 0.15972137
+animation = &"back_idle"
+frame_progress = 0.5943762

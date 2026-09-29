@@ -3,10 +3,10 @@ extends CharacterBody2D
 const speed = 100
 var current_dir = "none"
 
-func _physics_process(delta):
-	player_movement(delta)
+func _physics_process(_delta):
+	_player_movement(_delta)
 
-func player_movement(delta):
+func _player_movement(_delta):
 	
 	if Input.is_action_pressed("ui_right"):
 		current_dir = "right"
@@ -29,6 +29,7 @@ func player_movement(delta):
 		velocity.y = -speed
 		velocity.x = 0
 	else:
+		play_anim(0)
 		velocity.x = 0
 		velocity.y = 0
 	
@@ -43,23 +44,23 @@ func play_anim(movement):
 		if movement == 1:
 			anim.play("side_walk")
 		elif movement == 0:
-			play_anim("side_idle")
+			anim.play("side_idle")
 	if dir == "left":
 		anim.flip_h = true
 		if movement == 1:
 			anim.play("side_walk")
 		elif movement == 0:
-			play_anim("side_idle")
+			anim.play("side_idle")
 	
-	if dir == "up":
-		anim.flip_h = false
-		if movement == 1:
-			anim.play("back_walk")
-		elif movement == 0:
-			play_anim("back_idle")
 	if dir == "down":
-		anim.flip_h = false
+		anim.flip_h = true
 		if movement == 1:
 			anim.play("front_walk")
 		elif movement == 0:
-			play_anim("front_idle")
+			anim.play("front_idle")
+	if dir == "up":
+		anim.flip_h = true
+		if movement == 1:
+			anim.play("back_walk")
+		elif movement == 0:
+			anim.play("back_idle")
