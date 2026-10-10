@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://6n2f3we1kviw" path="res://ART/Ground/water3.png" id="8_nquh6"]
 [ext_resource type="PackedScene" uid="uid://bl7t58hwxrgw" path="res://Scene/player.tscn" id="9_jte5b"]
 [ext_resource type="PackedScene" uid="uid://beotst7qlahqn" path="res://Scene/enemy.tscn" id="10_71r3i"]
+[ext_resource type="PackedScene" uid="uid://7588ue1n1djm" path="res://Scene/enemy_2.tscn" id="11_nwjwq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vg3ep"]
 texture = ExtResource("1_2thg8")
@@ -1979,4 +1980,7 @@ layer_2/tile_data = PackedInt32Array(655361, 917505, 9, 655362, 917505, 9, 85196
 position = Vector2(39, 189)
 
 [node name="ENEMY" parent="." unique_id=438742002 instance=ExtResource("10_71r3i")]
-position = Vector2(271, 173)
+position = Vector2(387, 123)
+
+[node name="enemy_2" parent="ENEMY" unique_id=226227301 instance=ExtResource("11_nwjwq")]
+position = Vector2(-218, 80)

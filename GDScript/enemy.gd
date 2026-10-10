@@ -5,8 +5,8 @@ var player_chase = false
 var player = null
 
 func _physics_process(delta):
-	if player_chase:
-		position += (player.position-position)/speed
+	if player_chase and is_instance_valid(player):
+		position += (player.position-position) / speed
 
 		$AnimatedSprite2D.play("walk")
 		
@@ -19,11 +19,15 @@ func _physics_process(delta):
 
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	player = body
-	player_chase = true
+func _on_area_2d_body_entered(body):
+	# Check if the body entering the area is the player
+	if body.is_in_group("player"):
+		player = body
+		player_chase = true
 
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	player = null
-	player_chase = false
+func _on_area_2d_body_exited(body):
+	# Only stop chasing if the body leaving is actually the player
+	if body.is_in_group("player"):
+		player = null
+		player_chase = false
